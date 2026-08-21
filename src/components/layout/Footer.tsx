@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin, Instagram, Facebook } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { Container } from "@/components/ui/Card";
 import { siteConfig } from "@/config/site.config";
+import { InstagramIcon, FacebookIcon } from "@/components/brand/SocialIcons";
 
 export function Footer() {
   return (
@@ -83,7 +84,7 @@ export function Footer() {
                 className="text-slate-300 hover:text-amber-400 transition"
                 aria-label="Instagram"
               >
-                <Instagram size={24} />
+                <InstagramIcon size={24} />
               </a>
               <a
                 href={siteConfig.social.facebook}
@@ -92,7 +93,7 @@ export function Footer() {
                 className="text-slate-300 hover:text-blue-400 transition"
                 aria-label="Facebook"
               >
-                <Facebook size={24} />
+                <FacebookIcon size={24} />
               </a>
             </div>
           </div>
