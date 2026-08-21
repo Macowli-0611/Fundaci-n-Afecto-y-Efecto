@@ -26,11 +26,11 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 font-bold text-xl">
             <Image
-              src="/logo.jpg"
+              src="/logo.png"
               alt="Fundación Afecto y Efecto"
-              width={44}
-              height={44}
-              className="rounded-md"
+              width={56}
+              height={56}
+              className="rounded-md drop-shadow-md hover:drop-shadow-lg transition-all"
               priority
             />
             <span className="hidden sm:inline">Afecto y Efecto</span>

@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     "social",
   ],
   icons: {
-    icon: "/logo.jpg",
-    apple: "/logo.jpg",
+    icon: "/logo.png",
+    apple: "/logo.png",
   },
 };
 

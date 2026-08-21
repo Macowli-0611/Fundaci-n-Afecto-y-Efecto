@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Card, Container, Section } from "@/components/ui/Card";
 import { ImageSlot } from "@/components/media/ImageSlot";
@@ -11,8 +12,19 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <Section className="bg-gradient-to-br from-blue-50 to-amber-50 pt-20">
+      <Section className="bg-gradient-to-br from-blue-50 to-amber-50 pt-12">
         <Container>
+          {/* Logo Destacado */}
+          <div className="flex justify-center mb-8 lg:mb-12">
+            <Image
+              src="/logo.png"
+              alt="Fundación Afecto y Efecto"
+              width={140}
+              height={140}
+              className="drop-shadow-lg hover:scale-105 transition-transform"
+              priority
+            />
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
               <h1 className="text-5xl lg:text-6xl font-bold mb-4">

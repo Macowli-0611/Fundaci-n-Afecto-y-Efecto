@@ -13,11 +13,11 @@ export function Footer() {
           {/* About */}
           <div>
             <Image
-              src="/logo.jpg"
+              src="/logo.png"
               alt="Fundación Afecto y Efecto"
-              width={56}
-              height={56}
-              className="rounded-md mb-3"
+              width={64}
+              height={64}
+              className="rounded-md mb-3 drop-shadow-lg"
             />
             <h3 className="font-bold text-lg mb-3">Fundación Afecto y Efecto</h3>
             <p className="text-sm text-slate-300">
