@@ -28,8 +28,8 @@ export function Header() {
             <Image
               src="/logo.png"
               alt="Fundación Afecto y Efecto"
-              width={56}
-              height={56}
+              width={72}
+              height={72}
               className="rounded-md drop-shadow-md hover:drop-shadow-lg transition-all"
               priority
             />
@@ -51,7 +51,7 @@ export function Header() {
 
           {/* CTA Button */}
           <Link href="/contacto" className="hidden lg:inline-block">
-            <Button variant="secondary" size="sm">
+            <Button variant="secondary" size="md">
               Apoyar
             </Button>
           </Link>
