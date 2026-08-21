@@ -13,7 +13,7 @@ export default function Home() {
       {/* Hero */}
       <Section className="bg-gradient-to-br from-blue-50 to-amber-50 pt-20">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
               <h1 className="text-5xl lg:text-6xl font-bold mb-4">
                 Fundación <br />
@@ -56,7 +56,7 @@ export default function Home() {
       {/* Misión */}
       <Section className="bg-white">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
             <ImageSlot
               alt="Nuestra misión"
               width={500}

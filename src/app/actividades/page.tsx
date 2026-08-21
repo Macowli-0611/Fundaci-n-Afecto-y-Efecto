@@ -22,8 +22,8 @@ export default function ActividadesPage() {
             {actividades.map((actividad, idx) => (
               <div
                 key={actividad.id}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                  idx % 2 === 1 ? "lg:grid-cols-2 lg:[&>:first-child]:order-2" : ""
+                className={`grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center ${
+                  idx % 2 === 1 ? "md:[&>:first-child]:order-2" : ""
                 }`}
               >
                 <ImageSlot

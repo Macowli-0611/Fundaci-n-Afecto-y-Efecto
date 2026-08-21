@@ -19,7 +19,7 @@ export default function NosotrosPage() {
       {/* Institución */}
       <Section className="bg-white">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold mb-6">Fundación Afecto y Efecto</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">

@@ -10,7 +10,7 @@ export const programs: Program[] = [
     fullDescription:
       "Programa integral de refuerzo académico combinado con talleres de arte. Enseñamos tejido, bordado, costura, dibujo, caricatura, pintura en 5 técnicas diferentes: plano, alto relieve, barro, cubismo y técnicas de pinceladas.",
     targetAudience: "Niños y niñas en condición de vulnerabilidad",
-    image: "programas/refuerzo-escolar.jpg",
+    image: "refuerzo-escolar.jpg",
     activities: [
       "Refuerzo en materias principales",
       "Técnicas de pintura y dibujo",
@@ -26,7 +26,7 @@ export const programs: Program[] = [
     fullDescription:
       "Un espacio donde los niños y niñas pueden expresar sus emociones a través del dibujo, la lectura y la narración de cuentos. Trabajamos inteligencia emocional de forma terapéutica y segura.",
     targetAudience: "Niños y niñas de todas las edades",
-    image: "programas/lectura-terapia.jpg",
+    image: "lectura-terapia.jpg",
     activities: [
       "Lectura compartida",
       "Interpretación de cuentos",
@@ -42,7 +42,7 @@ export const programs: Program[] = [
     fullDescription:
       "Un programa especial donde los niños y niñas de la fundación pueden celebrar sus cumpleaños en un ambiente lleno de amor, amistad y alegría. Cada celebración es un momento para sentirse especial y acompañado.",
     targetAudience: "Todos los niños y niñas de la fundación",
-    image: "programas/cumpleanos.jpg",
+    image: "cumpleanos.jpg",
     activities: [
       "Celebración personalizada",
       "Juegos y dinámicas",
@@ -58,7 +58,7 @@ export const programs: Program[] = [
     fullDescription:
       "Un espacio donde padrinos, amigos y donantes pueden enviar mensajes, fotografías y videos de apoyo. Los niños reciben estos mensajes de afecto que refuerzan su autoestima y sienten el acompañamiento permanente de la comunidad.",
     targetAudience: "Todos los niños y niñas de la fundación",
-    image: "programas/fotografia-afecto.jpg",
+    image: "fotografia-afecto.jpg",
     activities: [
       "Recepción de mensajes de donantes",
       "Lectura y visualización de mensajes",
@@ -74,7 +74,7 @@ export const programs: Program[] = [
     fullDescription:
       "Ofrecemos almuerzos nutritivos en un comedor comunitario donde los niños y niñas comparten no solo alimento sino también momentos de convivencia, amistad y diversión. Contamos con espacios seguros para jugar, reír y fortalecer vínculos.",
     targetAudience: "Niños, niñas y familias de la comunidad",
-    image: "programas/comedor.jpg",
+    image: "comedor.jpg",
     activities: [
       "Almuerzos comunitarios nutritivos",
       "Juegos y deportes",

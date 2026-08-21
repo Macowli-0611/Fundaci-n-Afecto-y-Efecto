@@ -37,12 +37,12 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden lg:flex items-center space-x-5 xl:space-x-6">
             {navigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-slate-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                className="text-slate-700 hover:text-blue-600 transition-colors text-sm font-medium whitespace-nowrap"
               >
                 {item.name}
               </Link>
@@ -50,25 +50,26 @@ export function Header() {
           </nav>
 
           {/* CTA Button */}
-          <Link href="/contacto" className="hidden md:inline-block">
+          <Link href="/contacto" className="hidden lg:inline-block">
             <Button variant="secondary" size="sm">
               Apoyar
             </Button>
           </Link>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile/Tablet Menu Button */}
           <button
-            className="md:hidden p-2"
+            className="lg:hidden p-2"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Menú"
+            aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile/Tablet Navigation */}
         {mobileOpen && (
-          <nav className="md:hidden mt-4 pb-4 flex flex-col space-y-3">
+          <nav className="lg:hidden mt-4 pb-4 flex flex-col space-y-3">
             {navigation.map((item) => (
               <Link
                 key={item.href}

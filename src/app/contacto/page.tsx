@@ -58,14 +58,14 @@ export default function ContactoPage() {
       {/* Content */}
       <Section className="bg-white">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-12">
             {/* Info Cards */}
             <Card>
               <Mail className="text-blue-600 mb-3" size={32} />
               <h3 className="font-bold mb-2">Email</h3>
               <a
                 href={`mailto:${siteConfig.contact.email}`}
-                className="text-blue-600 hover:underline"
+                className="text-blue-600 hover:underline break-words"
               >
                 {siteConfig.contact.email}
               </a>

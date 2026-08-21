@@ -7,9 +7,9 @@ import { programs } from "@/content/programas";
 import { ArrowLeft, CheckCircle } from "lucide-react";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export function generateStaticParams() {
@@ -18,8 +18,9 @@ export function generateStaticParams() {
   }));
 }
 
-export default function ProgramDetailPage({ params }: PageProps) {
-  const program = programs.find((p) => p.slug === params.slug);
+export default async function ProgramDetailPage({ params }: PageProps) {
+  const { slug } = await params;
+  const program = programs.find((p) => p.slug === slug);
 
   if (!program) {
     notFound();
