@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -23,10 +24,15 @@ export function Header() {
       <Container className="py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 font-bold text-xl">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-amber-400 rounded-full flex items-center justify-center text-white font-bold">
-              A&E
-            </div>
+          <Link href="/" className="flex items-center gap-3 font-bold text-xl">
+            <Image
+              src="/logo.jpg"
+              alt="Fundación Afecto y Efecto"
+              width={44}
+              height={44}
+              className="rounded-md"
+              priority
+            />
             <span className="hidden sm:inline">Afecto y Efecto</span>
           </Link>
 

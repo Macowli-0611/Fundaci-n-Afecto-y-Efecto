@@ -20,6 +20,10 @@ export const metadata: Metadata = {
     "Colombia",
     "social",
   ],
+  icons: {
+    icon: "/logo.jpg",
+    apple: "/logo.jpg",
+  },
 };
 
 export default function RootLayout({

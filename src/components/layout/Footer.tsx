@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Container } from "@/components/ui/Card";
 import { siteConfig } from "@/config/site.config";
@@ -11,6 +12,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* About */}
           <div>
+            <Image
+              src="/logo.jpg"
+              alt="Fundación Afecto y Efecto"
+              width={56}
+              height={56}
+              className="rounded-md mb-3"
+            />
             <h3 className="font-bold text-lg mb-3">Fundación Afecto y Efecto</h3>
             <p className="text-sm text-slate-300">
               Dedicada al desarrollo integral de niños, niñas y adolescentes en condición de vulnerabilidad.
