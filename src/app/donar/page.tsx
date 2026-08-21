@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Container, Section, Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { formasDeApoyo } from "@/content/apoyo";
+import { siteConfig } from "@/config/site.config";
 import { Heart, Gift, Briefcase, Users, BookOpen, MapPin } from "lucide-react";
 
 const iconMap: Record<string, any> = {
@@ -14,6 +15,11 @@ const iconMap: Record<string, any> = {
 };
 
 export default function DonarPage() {
+  const { paypal, banco, billetera } = siteConfig.donations;
+  const paypalConfigured = Object.values(paypal.buttonIds).some(Boolean);
+  const bancoConfigured = Boolean(banco.numero && banco.titular);
+  const billeteraConfigured = Boolean(billetera.numero);
+
   return (
     <>
       {/* Header */}
@@ -65,38 +71,104 @@ export default function DonarPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* PayPal - Pendiente */}
-            <Card className="border-2 border-dashed border-slate-300">
-              <div className="text-slate-500 text-center py-8">
-                <p className="font-semibold mb-2">PayPal</p>
-                <p className="text-sm text-slate-400">
-                  Información de PayPal pendiente de configurar
-                </p>
-              </div>
-            </Card>
+            {/* PayPal */}
+            {paypalConfigured ? (
+              <Card>
+                <p className="font-semibold mb-4 text-center">Donar por PayPal</p>
+                <div className="flex flex-col gap-3">
+                  {paypal.buttonIds.alimentos && (
+                    <form action="https://www.paypal.com/donate" method="post" target="_top">
+                      <input type="hidden" name="hosted_button_id" value={paypal.buttonIds.alimentos} />
+                      <button type="submit" className="w-full text-sm text-blue-700 underline">
+                        Alimentos
+                      </button>
+                    </form>
+                  )}
+                  {paypal.buttonIds.bioseguridad && (
+                    <form action="https://www.paypal.com/donate" method="post" target="_top">
+                      <input type="hidden" name="hosted_button_id" value={paypal.buttonIds.bioseguridad} />
+                      <button type="submit" className="w-full text-sm text-blue-700 underline">
+                        Bioseguridad
+                      </button>
+                    </form>
+                  )}
+                  {paypal.buttonIds.recursos && (
+                    <form action="https://www.paypal.com/donate" method="post" target="_top">
+                      <input type="hidden" name="hosted_button_id" value={paypal.buttonIds.recursos} />
+                      <button type="submit" className="w-full text-sm text-blue-700 underline">
+                        Recursos digitales
+                      </button>
+                    </form>
+                  )}
+                </div>
+              </Card>
+            ) : (
+              <Card className="border-2 border-dashed border-slate-300">
+                <div className="text-slate-500 text-center py-8">
+                  <p className="font-semibold mb-2">PayPal</p>
+                  <p className="text-sm text-slate-400">
+                    Información de PayPal pendiente de configurar
+                  </p>
+                </div>
+              </Card>
+            )}
 
-            {/* Transferencia bancaria - Pendiente */}
-            <Card className="border-2 border-dashed border-slate-300">
-              <div className="text-slate-500 text-center py-8">
-                <p className="font-semibold mb-2">Transferencia Bancaria</p>
-                <p className="text-sm text-slate-400">
-                  Datos bancarios pendiente de completar
-                </p>
-              </div>
-            </Card>
+            {/* Transferencia bancaria */}
+            {bancoConfigured ? (
+              <Card>
+                <p className="font-semibold mb-4 text-center">Transferencia Bancaria</p>
+                <dl className="text-sm text-slate-700 space-y-2">
+                  {banco.nombre && (
+                    <div>
+                      <dt className="text-slate-500">Banco</dt>
+                      <dd className="font-medium">{banco.nombre}</dd>
+                    </div>
+                  )}
+                  {banco.tipo && (
+                    <div>
+                      <dt className="text-slate-500">Tipo de cuenta</dt>
+                      <dd className="font-medium">{banco.tipo}</dd>
+                    </div>
+                  )}
+                  <div>
+                    <dt className="text-slate-500">Número</dt>
+                    <dd className="font-medium">{banco.numero}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-slate-500">Titular</dt>
+                    <dd className="font-medium">{banco.titular}</dd>
+                  </div>
+                </dl>
+              </Card>
+            ) : (
+              <Card className="border-2 border-dashed border-slate-300">
+                <div className="text-slate-500 text-center py-8">
+                  <p className="font-semibold mb-2">Transferencia Bancaria</p>
+                  <p className="text-sm text-slate-400">
+                    Datos bancarios pendiente de completar
+                  </p>
+                </div>
+              </Card>
+            )}
 
-            {/* Contacto directo */}
-            <Card className="bg-blue-50">
-              <h4 className="font-bold text-blue-600 mb-2">¿Necesitas más info?</h4>
-              <p className="text-slate-700 text-sm mb-4">
-                Contáctanos directamente para conocer otras opciones de donación.
-              </p>
-              <Link href="/contacto">
-                <Button variant="primary" size="sm" className="w-full">
-                  Contactar
-                </Button>
-              </Link>
-            </Card>
+            {billeteraConfigured ? (
+              <Card>
+                <p className="font-semibold mb-4 text-center">{billetera.tipo || "Billetera digital"}</p>
+                <p className="text-center text-lg font-medium text-slate-700">{billetera.numero}</p>
+              </Card>
+            ) : (
+              <Card className="bg-blue-50">
+                <h4 className="font-bold text-blue-600 mb-2">¿Necesitas más info?</h4>
+                <p className="text-slate-700 text-sm mb-4">
+                  Contáctanos directamente para conocer otras opciones de donación.
+                </p>
+                <Link href="/contacto">
+                  <Button variant="primary" size="sm" className="w-full">
+                    Contactar
+                  </Button>
+                </Link>
+              </Card>
+            )}
           </div>
         </Container>
       </Section>

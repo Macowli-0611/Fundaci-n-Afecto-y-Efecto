@@ -121,53 +121,50 @@ Este documento lista todos los contenidos y recursos que faltan para completar e
 - [x] Interfaz para métodos de pago
 - [x] Formulario de contacto funcional
 
+### ⚠️ Seguridad — cómo se maneja este bloque ahora
+
+Estos datos **ya no se escriben en el código**. Se leen de variables de
+entorno (`.env.local` en desarrollo, "Environment Variables" en Vercel para
+producción), así nunca quedan guardados en el historial de git —
+imprescindible porque el repositorio tiene colaboradores y está desplegado
+en Vercel. Ver plantilla completa: **`.env.local.example`**.
+
+Mientras una variable no esté configurada, esa sección de la página
+`/donar` se oculta sola (no se ve nada roto ni "pendiente" visible).
+
 ### ❌ Pendiente - Métodos de Pago
 
-**PayPal** (3 botones encontrados en sitio viejo)
-- [ ] Verificar que estos IDs sigan activos:
+**PayPal** (3 botones encontrados en sitio viejo — verificar antes de reactivar)
+- [ ] Verificar que estos IDs sigan activos (⚠️ ya estuvieron expuestos en un
+      commit público anterior del repo; considera regenerarlos en PayPal en
+      vez de reutilizarlos, por precaución):
   - `MKJEGZC7KHSNA` — Donación de alimentos
   - `EX3LVAYQL8L3U` — Equipos de protección
   - `MZKDTPJKLFL8G` — Recursos digitales
-- [ ] Activar en: `src/config/site.config.ts` → `donations.paypal.activo = true`
+- [ ] Configurar en `.env.local` (local) y en Vercel (producción):
+  ```
+  PAYPAL_BUTTON_ID_ALIMENTOS=...
+  PAYPAL_BUTTON_ID_BIOSEGURIDAD=...
+  PAYPAL_BUTTON_ID_RECURSOS=...
+  ```
 
 **Transferencia Bancaria**
-- [ ] Nombre del banco
-- [ ] Número de cuenta
-- [ ] Titular de la cuenta
-- [ ] Tipo de cuenta (corriente/ahorros)
-- [ ] Completar en: `src/config/site.config.ts` → `donations.banco`
+- [ ] Nombre del banco, número de cuenta, titular, tipo de cuenta
+- [ ] Configurar en `.env.local` y en Vercel:
+  ```
+  DONACIONES_BANCO_NOMBRE=...
+  DONACIONES_BANCO_NUMERO=...
+  DONACIONES_BANCO_TITULAR=...
+  DONACIONES_BANCO_TIPO=...
+  ```
 
 **Billetera Digital (opcional)**
 - [ ] Número Nequi / Daviplata / similar
-- [ ] Completar en: `src/config/site.config.ts` → `donations.billetera`
-
-**Ubicación de Actualización:**
-```typescript
-// src/config/site.config.ts
-
-donations: {
-  paypal: {
-    activo: false, // ← Cambiar a true cuando verifiques
-    buttonIds: {
-      alimentos: "MKJEGZC7KHSNA",
-      bioseguridad: "EX3LVAYQL8L3U",
-      recursos: "MZKDTPJKLFL8G",
-    },
-  },
-  banco: {
-    activo: false, // ← Cambiar a true cuando completes
-    nombre: null,  // Ej: "Banco de Bogotá"
-    numero: null,  // Ej: "123456789"
-    titular: null, // Ej: "Fundación Afecto y Efecto"
-    tipo: null,    // Ej: "Cuenta corriente"
-  },
-  billetera: {
-    activo: false,
-    numero: null,
-    tipo: null,
-  },
-}
-```
+- [ ] Configurar en `.env.local` y en Vercel:
+  ```
+  DONACIONES_BILLETERA_NUMERO=...
+  DONACIONES_BILLETERA_TIPO=...
+  ```
 
 ---
 

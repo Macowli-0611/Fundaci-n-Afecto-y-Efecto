@@ -1,11 +1,26 @@
-// Configuración principal del sitio - EDITAR AQUÍ LOS DATOS
+// Configuración principal del sitio.
+//
+// Los datos NO sensibles (contacto público, redes sociales) están escritos
+// directamente aquí porque ya son públicos en el Facebook/Instagram de la
+// Fundación.
+//
+// Los datos de donación (cuenta bancaria, IDs de PayPal) se leen de
+// variables de entorno — NUNCA se escriben aquí como texto literal, para
+// que nunca queden guardados en el historial de git. Se configuran en
+// `.env.local` (desarrollo) y en Vercel → Settings → Environment Variables
+// (producción). Ver `.env.local.example` para la lista completa.
+
+function readEnv(name: string): string | null {
+  const value = process.env[name];
+  return value && value.trim().length > 0 ? value : null;
+}
 
 export const siteConfig = {
   name: "Fundación Afecto y Efecto",
   description: "Sonreír es gratis",
   tagline: "SONREÍR ES GRATIS",
 
-  // Contacto - Verificar y completar
+  // Contacto - público, tomado del sitio/redes oficiales
   contact: {
     email: "fundacionafectoyefecto@gmail.com",
     phone: "3126026887",
@@ -17,37 +32,31 @@ export const siteConfig = {
     country: "Colombia",
   },
 
-  // Redes sociales
+  // Redes sociales - públicas
   social: {
     instagram: "https://www.instagram.com/fundacion_afecto_y_efecto_/",
     facebook: "https://www.facebook.com/Fundaci%C3%B3n-Afecto-y-Efecto-317325025459270",
   },
 
-  // Donaciones - Completar cuando confirmes
+  // Donaciones — todo sale de variables de entorno. Si la variable no está
+  // configurada, la sección se oculta sola (ver src/app/donar/page.tsx).
   donations: {
-    // PayPal - Cambiar 'activo' a true cuando verifices que funcionan
     paypal: {
-      activo: false,
-      // IDs encontrados en el sitio viejo - VERIFICAR
       buttonIds: {
-        alimentos: "MKJEGZC7KHSNA", // Donación de alimentos
-        bioseguridad: "EX3LVAYQL8L3U", // Equipos de protección
-        recursos: "MZKDTPJKLFL8G", // Recursos digitales
+        alimentos: readEnv("PAYPAL_BUTTON_ID_ALIMENTOS"),
+        bioseguridad: readEnv("PAYPAL_BUTTON_ID_BIOSEGURIDAD"),
+        recursos: readEnv("PAYPAL_BUTTON_ID_RECURSOS"),
       },
     },
-    // Transferencia bancaria - Completar con datos oficiales
     banco: {
-      activo: false,
-      nombre: null as string | null,
-      numero: null as string | null,
-      titular: null as string | null,
-      tipo: null as string | null, // "Cuenta corriente", "Cuenta de ahorros", etc
+      nombre: readEnv("DONACIONES_BANCO_NOMBRE"),
+      numero: readEnv("DONACIONES_BANCO_NUMERO"),
+      titular: readEnv("DONACIONES_BANCO_TITULAR"),
+      tipo: readEnv("DONACIONES_BANCO_TIPO"),
     },
-    // Nequi, Daviplata, etc - Completar si se usa
     billetera: {
-      activo: false,
-      numero: null as string | null,
-      tipo: null as string | null,
+      numero: readEnv("DONACIONES_BILLETERA_NUMERO"),
+      tipo: readEnv("DONACIONES_BILLETERA_TIPO"),
     },
   },
 

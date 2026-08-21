@@ -12,15 +12,38 @@ Abre http://localhost:3000
 
 ## ⚙️ Configuración
 
-**Edita TODO los datos en un único archivo:**
+**Datos públicos** (teléfono, email, WhatsApp, redes sociales) → edítalos en:
 ```
 src/config/site.config.ts
 ```
 
-- Teléfono, email, WhatsApp
-- Redes sociales
-- Datos bancarios
-- Métodos de PayPal
+**Datos de donación** (cuenta bancaria, IDs de PayPal) → **NO van en el
+código**. Se leen de variables de entorno para que nunca queden guardadas
+en el historial de git:
+
+1. Copia la plantilla: `cp .env.local.example .env.local`
+2. Rellena los valores reales en `.env.local` (este archivo nunca se sube a git)
+3. En producción (Vercel): Project → Settings → Environment Variables
+
+Mientras una variable no esté configurada, esa sección se oculta sola en
+`/donar` — no se ve nada roto.
+
+## 🔒 Seguridad del repositorio
+
+- **Mantén el repo privado en GitHub** (Settings → General → Danger Zone →
+  Change repository visibility). Es público por defecto al crearlo; para un
+  sitio con datos de donación es mejor privado, sobre todo si vas a dar
+  acceso a un colaborador.
+- **Para dar acceso a alguien:** Settings → Collaborators → Add people, en
+  vez de compartir tu usuario/contraseña de GitHub.
+- **Nunca** commitees `.env.local` (ya está en `.gitignore`) ni pegues
+  claves/API keys directamente en el código — usa siempre variables de
+  entorno.
+- Los 3 IDs de PayPal del sitio viejo (`MKJEGZC7KHSNA`, `EX3LVAYQL8L3U`,
+  `MZKDTPJKLFL8G`) ya estuvieron expuestos en un commit público anterior de
+  este repo. No son secretos críticos (solo sirven para recibir pagos a esa
+  cuenta), pero por precaución considera regenerarlos en PayPal antes de
+  reactivarlos.
 
 ## 🖼️ Agregar Fotos
 
