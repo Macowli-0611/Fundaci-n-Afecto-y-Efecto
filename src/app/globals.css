@@ -104,3 +104,12 @@ button {
     scroll-behavior: auto !important;
   }
 }
+
+/* Hero Section with Logo Background */
+.hero-section {
+  background-image: url(/logo-hero-bg.png);
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-attachment: scroll;
+}

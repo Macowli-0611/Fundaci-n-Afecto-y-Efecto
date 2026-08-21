@@ -12,19 +12,8 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <Section className="bg-gradient-to-br from-blue-50 to-amber-50 pt-12">
-        <Container>
-          {/* Logo Destacado - Protagonista */}
-          <div className="flex justify-center mb-12 lg:mb-16">
-            <Image
-              src="/logo.png"
-              alt="Fundación Afecto y Efecto"
-              width={280}
-              height={280}
-              className="drop-shadow-2xl hover:scale-110 transition-transform duration-300"
-              priority
-            />
-          </div>
+      <Section className="bg-gradient-to-br from-blue-50 to-amber-50 pt-12 relative overflow-hidden hero-section">
+        <Container className="relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
               <h1 className="text-5xl lg:text-6xl font-bold mb-4">
