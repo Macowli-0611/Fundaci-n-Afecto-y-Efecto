@@ -14,14 +14,14 @@ export default function Home() {
       {/* Hero */}
       <Section className="bg-gradient-to-br from-blue-50 to-amber-50 pt-12">
         <Container>
-          {/* Logo Destacado */}
-          <div className="flex justify-center mb-8 lg:mb-12">
+          {/* Logo Destacado - Protagonista */}
+          <div className="flex justify-center mb-12 lg:mb-16">
             <Image
               src="/logo.png"
               alt="Fundación Afecto y Efecto"
-              width={140}
-              height={140}
-              className="drop-shadow-lg hover:scale-105 transition-transform"
+              width={280}
+              height={280}
+              className="drop-shadow-2xl hover:scale-110 transition-transform duration-300"
               priority
             />
           </div>
