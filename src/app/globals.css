@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-primary: #00559B;
+  --brand-accent: #FFC107;
+  --brand-accent2: #E74C3C;
+  --text-primary: #000000;
+  --text-light: #666666;
+  --bg-primary: #FFFFFF;
+}
+
+* {
+  @apply scroll-smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-slate-900;
+  font-family: "Lato", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold;
+  font-family: "Lato", sans-serif;
+}
+
+h1 {
+  @apply text-4xl sm:text-5xl lg:text-6xl;
+}
+
+h2 {
+  @apply text-3xl sm:text-4xl lg:text-5xl;
+}
+
+h3 {
+  @apply text-2xl sm:text-3xl;
+}
+
+/* Smooth transitions */
+a, button {
+  @apply transition-all duration-200;
+}
+
+/* Accessibility - Skip link */
+.sr-only {
+  @apply absolute w-1 h-1 p-0 -m-1 overflow-hidden clip-path;
+  clip-path: inset(50%);
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+}
+
+/* Smooth scroll behavior for reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    @apply !scroll-auto;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

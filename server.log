@@ -1,0 +1,12 @@
+
+> fundacion-afecto-y-efecto@0.1.0 dev
+> next dev -p 8888
+
+▲ Next.js 16.3.1 (Turbopack)
+- Local:         http://localhost:8888
+- Network:       http://192.168.1.64:8888
+- Environments: .env.local
+✓ Ready in 782ms
+✓ Running next.config.ts took 138ms
+
+ GET / 200 in 2.3s (next.js: 2.1s, application-code: 195ms)
